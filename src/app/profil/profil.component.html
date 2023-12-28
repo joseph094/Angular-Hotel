@@ -1,0 +1,89 @@
+<ng-container>
+  <div class="form-container">
+
+    <form action="#" method="post">
+      <p>account settings</p>
+      <div class="form-group">
+        <label for="Username">First Name</label>
+        <input type="text" id="Username" name="Username" placeholder="Enter Username" required
+          [(ngModel)]="userData.first_name" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group">
+        <label for="last name">Last Name</label>
+        <input type="text" id="last name" name="Username" placeholder="Enter Username" required
+          [(ngModel)]="userData.last_name" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="Username" placeholder="Enter Username" required [(ngModel)]="userData.phone"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="text" id="Email" name="Email" placeholder="Enter Email" required [(ngModel)]="userData.email"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+      <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+    </form>
+
+
+
+  </div>
+
+  <div class="container" style="margin-bottom: 20px; margin-top: 15px">
+    <div style="display: inline-block ; padding-bottom: 40px;">
+
+      <table mat-table [dataSource]="datasource" matSort>
+        <!--  Lenders  -->
+
+        <ng-container matColumnDef="type">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>Room Type</th>
+          <td *matCellDef="let element">
+            <div class="floating">{{element.chamber.categories.type}}</div><br>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="beginDate">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> From
+          </th>
+          <td *matCellDef="let element">
+            <div class="floating">{{element.Begin_Date}}</div><br>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="endDate">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>To
+          </th>
+          <td *matCellDef="let element">
+            <div class="floating">{{element.End_Date}}</div><br>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="nbr_chamber">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Room Number
+          </th>
+          <td *matCellDef="let element">
+            <div class="floating">{{element.chamber.nbr_chamber}}</div><br>
+          </td>
+
+        </ng-container>
+        <ng-container matColumnDef="full_price">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Full Price
+          </th>
+          <td *matCellDef="let element">
+            <div class="floating">{{element.full_price}}</div><br>
+          </td>
+
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons
+        style="margin-bottom: 40px; background-color: #0d102d; color: white; "></mat-paginator>
+
+    </div>
+  </div>
+
+</ng-container>

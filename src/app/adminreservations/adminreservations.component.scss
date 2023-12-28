@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+form {
+    width: 470px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #131740;
+    border-radius: 4px;
+    margin-top: 15px;
+    color: #eee;
+    font-family: poppins;
+    margin-bottom: 60px;
+    border: 2px solid #D4AF37;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="Date"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #07051d;
+    color: #fff;
+    border: 1px solid #314376;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="file"] {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+
+    background-color: #b68b00;
+    // border: 2px solid #9e34ac;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+
+    background-color: #735800;
+}
+
+@media (max-width: 576px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}
+
+.errore {
+    margin-top: 40px;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+form p {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #161a42;
+    color: #D4AF37;
+    text-transform: uppercase;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container form {
+    width: 45%;
+    /* Adjust the width as needed */
+}
+
+/* Optional: Add some margin or padding for spacing */
+.form-container form:first-child {
+    margin-right: 10px;
+}
+
+.form-container form:last-child {
+    margin-left: 50px;
+}
+
+
+.title {
+    color: #D4AF37;
+    text-align: center;
+    font-family: "orbitron";
+    display: flex;
+    justify-content: center;
+}
+
+.mini {
+    text-align: right;
+    width: 16px;
+    height: 13px
+}
+
+.floating {
+    float: left;
+    padding-right: 5px;
+}
+
+.tableheader {
+    background-color: #1f2350;
+    color: #D4AF37;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* new*/
+table {
+    border-collapse: collapse;
+    border: 2px solid #D4AF37;
+    border-radius: 0.5rem;
+    //overflow: hidden;
+}
+
+table tr:nth-child(odd) {
+    background-color: #131740;
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+table tr:nth-child(even) {
+    background-color: #0f1235;
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+table thead {
+    background-color: #1f2350;
+    color: #8358ff;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+th,
+td {
+    padding: 15px 30px;
+    text-align: left;
+    border-bottom: 1px solid #36395c;
+}
+
+
+
+.width-seller {
+    width: 100px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 20px;
+}
+
+.font:hover {
+    color: #8358FF;
+    cursor: pointer;
+}
+
+.fa:hover {
+    color: #8358FF;
+    cursor: pointer;
+}
+
+.btn-group button.active {
+    background-color: #8358ff;
+    color: black;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: #D4AF37;
+    border: 1px solid #D4AF37;
+    color: white;
+    padding: 5px 47px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "poppins";
+    border: none;
+    border-bottom: 3px solid #D4AF37;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #997500;
+    color: white;
+}
+
+.btn:focus {
+    background-color: #D4AF37;
+    color: #05071e;
+}
+
+.btn-grp {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.done {
+    color: red;
+    /* or any other style you want for "done" status */
+}
+
+.not-done {
+    color: green;
+    /* or any other style you want for "not done" status */
+}
+
+.shape {
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .shape:nth-child(1) {
+    background: linear-gradient(to right, #D4AF37, #314376);
+    left: 30px;
+    top: 20px;
+    z-index: -1;
+
+  }
+  
+  .shape:nth-child(2) {
+    background: linear-gradient(to left, #D4AF37, #314376);
+    left: 93%;
+    top: 100px;
+    z-index: -1;
+  }
+  
+  .shape:nth-child(3) {
+    background: linear-gradient(to right, #D4AF37, #314376);
+    left: 200px;
+    top: 80%;
+    z-index: -1;
+
+  }
+  .shape:nth-child(4) {
+    background: linear-gradient(to right, #D4AF37, #314376);
+    left: 200px;
+    top: 80%;
+    z-index: -1;
+
+  }
+  .shape:nth-child(5) {
+    background: linear-gradient(to right, #D4AF37, #314376);
+    left: 200px;
+    top: 20%;
+    z-index: -1;
+
+  }
+  .shape:nth-child(6) {
+    background: linear-gradient(to right, #D4AF37, #314376);
+    left: 500px;
+    top: 50%;
+    z-index: -1;
+
+  }.shape:nth-child(7) {
+    background: linear-gradient(to right, #D4AF37, #314376);
+    left: 800px;
+    top: 70%;
+    z-index: -1;
+
+  }

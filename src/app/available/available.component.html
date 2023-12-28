@@ -1,0 +1,114 @@
+<h1 class="title">Reserve a Room</h1>
+
+<div class="form-container">
+
+    <form>
+        <h2 class="title">Select Date Range</h2>
+
+        <label for="beginDate">Begin Date:</label>
+        <input [(ngModel)]="RequestChambers.beginDate" [ngModelOptions]="{standalone: true}" type="date" id="beginDate"
+            name="beginDate" required>
+
+        <label for="endDate">End Date:</label>
+        <input [(ngModel)]="RequestChambers.endDate" [ngModelOptions]="{standalone: true}" type="date" id="endDate"
+            name="endDate" required>
+
+        <button type="submit" (click)="getChambers()">Find Available Chambers</button>
+        <p class="error" style="color:#af4848 ;margin-top: 15px;" *ngIf="error!==''">{{error}}</p>
+
+    </form>
+    <form *ngIf="show==true">
+        <h2 class="title" style="margin-bottom: 10px;">Chamber Type</h2>
+
+        <label for="chamberType">Select Chamber Type:</label>
+        <select id="chamberType" [(ngModel)]="selectedValue" (change)="onSelectionChange($event)"
+            [ngModelOptions]="{standalone:true}">
+            <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+        </select>
+
+        <p style="margin-top: 20px;">Selected Chamber Type:<span style="color: white;"> {{ selectedValue }}</span></p>
+    </form>
+</div>
+<ng-container *ngIf="show==true">
+
+
+    <h2 class="title">Available Chambers</h2>
+
+    <div class="container" style="margin-bottom: 20px; margin-top: 30px;margin-right: 20px;margin-left: 20px;">
+        <div style="display: inline-block ; padding-bottom: 40px;">
+
+            <table mat-table [dataSource]="datasource" matSort>
+                <ng-container matColumnDef="nbr_chamber">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>Room Number</th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.nbr_chamber}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="floor">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Floor
+                    </th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.floor}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="type">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>Category Type</th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.categories.type}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="price_winter">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Winter Price
+                    </th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.categories.price_winter}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="price_spring">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Spring Price
+                    </th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.categories.price_spring}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="price_summer">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Summer Price
+                    </th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.categories.price_summer}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="price_autmn">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Autumn Price
+                    </th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.categories.price_autmn}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="caracterstiques">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Caracterstiques
+                    </th>
+                    <td *matCellDef="let element">
+                        <div class="floating">{{element.categories.caracterstiques}}</div><br>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="Reserve Room">
+                    <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Reserve
+                    </th>
+                    <td *matCellDef="let element">
+                        <button class="btn"
+                            (click)="setReservation(element.id_chamber,element.categories.price_winter,element.categories.price_summer,element.categories.price_spring,element.categories.price_autmn)">Reserve</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons
+                style="margin-bottom: 40px; background-color: #0d102d; color: white; "></mat-paginator>
+
+        </div>
+
+
+    </div>
+</ng-container>

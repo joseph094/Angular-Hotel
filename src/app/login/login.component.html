@@ -1,0 +1,30 @@
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form>
+    <h3>LOGIN</h3>
+    <p class="text">
+      New here ?
+      <span style="color: #D4AF37 ; font-weight: 500; text-decoration: underline" [routerLink]="['/register']"
+      >Sign up</span>
+    </p>
+  
+    <label for="email">Email</label>
+    <input [(ngModel)]="loginData.email" type="email" placeholder="Email or Username" id="email" [ngModelOptions]="{standalone: true}" />
+  
+    <label for="password">Password</label>
+    <input  [(ngModel)]="loginData.password" type="password" placeholder="Password" id="password" [ngModelOptions]="{standalone: true}"/>
+    <p class="error"  style="color:#af4848 ;margin-top: 15px;">{{error}}</p>
+    <p style="color: #D4AF37; margin-top: 10px" (click)="forgortPassword()">
+      Forgot Password?
+    </p>
+
+  
+    <button block="true" type="submit" (click)="login()">Log In</button>
+
+    <button block="true" type="submit" (click)="profile()">Profile</button>
+
+  
+  </form>
+  

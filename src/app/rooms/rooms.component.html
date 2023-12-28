@@ -1,0 +1,87 @@
+<h2 class="title">Chambers</h2>
+<button type="button" class="add-category-button" (click)="showOrNot()">
+  <span>+</span> Add New Chamber
+</button>
+<ng-container *ngIf="show">
+  <div class="form-container">
+
+      <form action="#" method="post">
+          <p>Add New Chamber</p>
+          <div class="form-group">
+              <label for="Username">Chamber Number</label>
+              <input [(ngModel)]="Chamber.nbr_chamber" type="text" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Chamber Number">
+          </div>
+          <div class="form-group">
+              <label for="Username">Chamber Floor </label>
+              <input [(ngModel)]="Chamber.floor" type="number" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Chamber Floor">
+          </div>
+          <div class="form-group">
+
+            <label for="chamberType"> Chamber Type:</label>
+            <select id="chamberType" [(ngModel)]="Chamber.categories" [ngModelOptions]="{standalone:true}">
+                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+        </div>
+          
+          <button type="submit" class="btn-create" (click)="CreateChamber()">Create New Chamber</button>
+
+          <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+          <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+      </form>
+
+  </div>
+
+</ng-container>
+<div class="container" style="margin-bottom: 20px; margin-top: 30px">
+    <div style="display: inline-block ; padding-bottom: 40px;">
+
+        <table mat-table [dataSource]="datasource" matSort>
+            <!--  Lenders  -->
+
+            <ng-container matColumnDef="nbr_chamber">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>Room Number</th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.nbr_chamber}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="floor">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Floor
+                </th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.floor}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="type">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Room Type
+                </th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.categories.type}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Edit
+                </th>
+                <td *matCellDef="let element">
+                    <button type="submit" class="btn1" (click)="updateChamber(element.id_chamber)">Edit</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Delete
+                </th>
+                <td *matCellDef="let element">
+                    <button type="submit" class="btn1" (click)="deleteChamber(element.id_chamber)">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons
+            style="margin-bottom: 40px; background-color: #0d102d; color: white; "></mat-paginator>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,34 @@
+<ng-container>
+    <div class="form-container">
+
+        <form action="#" method="post">
+            <p>Update Chamber</p>
+            <div class="form-group">
+                <label for="Username">Chamber Number</label>
+                <input [(ngModel)]="Chamber.nbr_chamber" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Category Type">
+            </div>
+            <div class="form-group">
+                <label for="Username">Chamber Floor </label>
+                <input [(ngModel)]="Chamber.floor" type="number" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Winter Price">
+            </div>
+            <div class="form-group">
+
+                <label for="chamberType"> Chamber Type:</label>
+                <select id="chamberType" [(ngModel)]="Chamber.categories" [ngModelOptions]="{standalone:true}">
+                    <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-Cchanges" (click)="updateChamber(chamberId,Chamber)">Submit
+                Changes</button>
+
+            <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+            <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+        </form>
+
+
+
+    </div>
+
+</ng-container>

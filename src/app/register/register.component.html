@@ -1,0 +1,60 @@
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  
+  <form [formGroup]="registerForm" (ngSubmit)="registerSubmited()">
+    <h3>SIGN UP</h3>
+    <p class="text">
+      You already have an account ?
+      <span style="color: #D4AF37; font-weight: 500; text-decoration: underline" [routerLink]="['/sign']">Sign in</span>
+    </p>
+  
+    <div class="form-container">
+      <div class="input-container">
+        <label for="username">First Name</label>
+        <input type="text" placeholder="First Name" id="firstName" class="form-control" formControlName="firstName" />
+       
+      </div>
+      <div class="input-container">
+        <label for="username">Last Name</label>
+        <input type="text" placeholder="Last Name" id="lastName" class="form-control" formControlName="lastName" />
+       
+      </div>
+      <div class="input-container">
+        <label for="username">Phone Number</label>
+        <input type="text" placeholder="Your Phone Number" id="phone" class="form-control" formControlName="phone" />
+        <div style="color:#af4848;font-size: small;" *ngIf="phone.errors?.['required'] && phone.touched "> phone is
+            Required </div>
+          <div style="color:#af4848;font-size: small;" *ngIf="phone.errors?.['pattern'] && phone.touched "> Phone can't contain caracters
+          </div>
+      </div>
+  
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" id="email" formControlName="email" />
+        <div style="color:#af4848;font-size: small;" *ngIf="Email.errors?.['required'] && Email.touched "> Email is
+          Required </div>
+        <div style="color:#af4848;font-size: small;" *ngIf="Email.errors?.['email'] && Email.touched "> Email is Invalid
+        </div>
+      </div>
+  
+      <div class="input-container">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" placeholder="Password" id="password" formControlName="password" class="form-control" />
+      </div>
+  
+      <div class="input-container">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" placeholder="Confirm Password" id="confirmPassword" class="form-control"
+          formControlName="confirmPassword" />
+        <div style="color:#af4848;font-size: small;" [ngStyle]="{'display':repeatPass}"> Repeat pass is Invalid</div>
+      </div>
+    </div>
+    <p class="error" style="color:#af4848 ;margin-top: 15px;" *ngIf="error!==''">{{error}}</p>
+
+  
+    <button type="submit">Sign up</button>
+  
+  </form>
+  

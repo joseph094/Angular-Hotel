@@ -1,0 +1,111 @@
+<h2 class="title">Clients</h2>
+<button type="button" class="add-category-button" (click)="showOrNot()">
+    <span>+</span> Add New Client
+</button>
+<ng-container *ngIf="show">
+    <div class="form-container">
+
+        <form action="#" method="post">
+            <p>Add New Client</p>
+            <div class="form-group">
+                <label for="Username"> First Name</label>
+                <input [(ngModel)]="User.first_name" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="first_name">
+            </div>
+            <div class="form-group">
+                <label for="Username"> Last Name</label>
+                <input [(ngModel)]="User.last_name" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="last_name">
+            </div>
+            <div class="form-group">
+                <label for="Username"> Phone Number</label>
+                <input [(ngModel)]="User.phone" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="Username"> Email</label>
+                <input [(ngModel)]="User.email" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="last_name">
+            </div>
+            <div class="form-group">
+                <label for="Username"> Password</label>
+                <input [(ngModel)]="User.password" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Password">
+            </div>
+            <p class="error" style="color:#af4848 ;margin-top: 15px;" *ngIf="error!==''">{{error}}</p>
+
+
+            <button type="submit" class="btn-create"(click)="registerUser()">Create New Client</button>
+
+            <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+            <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+        </form>
+
+    </div>
+
+</ng-container>
+<div class="container" style="margin-bottom: 20px; margin-top: 30px">
+    <div style="display: inline-block ; padding-bottom: 40px;">
+
+        <table mat-table [dataSource]="datasource" matSort>
+            <!--  Lenders  -->
+
+            <ng-container matColumnDef="first_name">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.first_name}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="last_name">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name
+                </th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.last_name}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="phone">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Phone
+                </th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.phone}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Email
+                </th>
+                <td *matCellDef="let element">
+                    <div class="floating">{{element.email}}</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="password">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Password
+                </th>
+                <td *matCellDef="let element">
+                    <div class="floating">**********</div><br>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Edit
+                </th>
+                <td *matCellDef="let element">
+                    <button type="submit" class="btn1" (click)="updateUser(element.id_user)">Edit</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Delete
+                </th>
+                <td *matCellDef="let element">
+                    <button type="submit" class="btn1" (click)="deleteUser(element.id_user)">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr   mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons
+            style="margin-bottom: 40px; background-color: #0d102d; color: white; "></mat-paginator>
+
+    </div>
+
+
+</div>

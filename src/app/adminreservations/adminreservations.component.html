@@ -1,0 +1,94 @@
+<h1 class="title">All Reservations </h1>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <!--<div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>-->
+
+
+  </div>
+
+<div class="container" style="margin-bottom: 20px; margin-top: 30px">
+    <div style="display: inline-block ; padding-bottom: 40px;">
+  
+    <table mat-table [dataSource]="datasource" matSort>
+      <!--  Lenders  -->
+      
+      <ng-container matColumnDef="first_name">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>First Name </th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.users.first_name}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="last_name">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name
+        </th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.users.last_name}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.users.email}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="nbr_chamber">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Chamber Number
+          </th>
+          <td   *matCellDef="let element">
+            <div class="floating">{{element.chamber.nbr_chamber}}</div><br>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Chamber Type
+          </th>
+          <td   *matCellDef="let element">
+            <div class="floating">{{element.chamber.categories.type}}</div><br>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="full_price">
+          <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Full Price
+          </th>
+          <td   *matCellDef="let element">
+            <div class="floating">{{element.full_price}}</div><br>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="beginDate">
+            <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> From
+            </th>
+            <td *matCellDef="let element">
+              <div class="floating">{{element.Begin_Date}}</div><br>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="endDate">
+            <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>To
+            </th>
+            <td *matCellDef="let element">
+              <div class="floating">{{element.End_Date}}</div><br>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Status
+            </th>
+            <td *matCellDef="let element">
+                <div class="floating" [ngClass]="{'done': isDateBeforeToday(element.End_Date), 'not-done': !isDateBeforeToday(element.End_Date)}">
+                  <span *ngIf=" isDateBeforeToday(element.End_Date)">DONE</span>
+                  <span *ngIf=" !isDateBeforeToday(element.End_Date)">NOT YET</span>
+                </div>
+            </td>
+          </ng-container>
+          
+         
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons style="margin-bottom: 40px; background-color: #0d102d; color: white; "></mat-paginator>
+  
+  </div>
+  
+  
+  </div>

@@ -1,0 +1,59 @@
+<ng-container>
+    <div class="form-container">
+
+        <form action="#" method="post">
+            <p>Update User</p>
+            <div class="form-group">
+                <label for="Username">First Name</label>
+                <input [(ngModel)]="User.first_name" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="Username">Last Name </label>
+                <input [(ngModel)]="User.last_name" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="last_name">
+            </div>
+            <div class="form-group">
+                <label for="Username">Phone </label>
+                <input [(ngModel)]="User.phone" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="Username">Email </label>
+                <input [(ngModel)]="User.email" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Email">
+            </div>
+            <button type="submit" class="btn-Cchanges" (click)="UpdateUser(userId,User)">Submit
+                Changes</button>
+
+            <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+            <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+        </form>
+        <form>
+            <p>reset password</p>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" id="email" name="Email" placeholder="Enter Email" required readonly
+                    [value]="User.email">
+            </div>
+            <div class="form-group">
+                <label for="password">New Password</label>
+                <input type="password" id="password" name="password" placeholder="New password" required
+                   [(ngModel)]="newpasswordupdate.newpassword" >
+            </div>
+            <div class="form-group">
+                <label for="password">Confirm New Password</label>
+                <input type="password" id="password" name="password" placeholder="New password" required
+                   [(ngModel)]="CNP" >
+            </div>
+            <p class="error" style="color:#af4848 ;margin-top: 15px;" *ngIf="error!==''">{{error}}</p>
+         
+
+            <button type="submit" class="btn-Schanges" style="margin-top: 118px;"(click)="UpdatePassword()">Save Changes</button>
+        </form>
+
+
+    </div>
+
+</ng-container>

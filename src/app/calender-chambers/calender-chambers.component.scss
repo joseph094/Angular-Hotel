@@ -1,0 +1,30 @@
+/* styles.css or your component-specific styles */
+.full-calendar-container {
+    position: relative;
+    margin-left: 10%;
+    height: 77vh;
+  }
+  
+  .fc-event {
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    border: 1px solid #007bff;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .fc-time {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .fc-title {
+    font-weight: bold;
+  }
+  
+  /* Adjust the styles based on your design preferences */
+  

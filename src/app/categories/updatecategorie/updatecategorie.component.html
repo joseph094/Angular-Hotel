@@ -1,0 +1,47 @@
+<ng-container>
+    <div class="form-container">
+
+        <form action="#" method="post">
+            <p>Update Room Category</p>
+            <div class="form-group">
+                <label for="Username">Category Type</label>
+                <input [(ngModel)]="Category.type" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Category Type">
+            </div>
+            <div class="form-group">
+                <label for="Username">Winter Price </label>
+                <input [(ngModel)]="Category.price_winter" type="number" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Winter Price">
+            </div>
+            <div class="form-group">
+                <label for="Username">Spring Price</label>
+                <input [(ngModel)]="Category.price_spring" type="number" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Spring Price">
+            </div>
+            <div class="form-group">
+                <label for="Email">Summer Price</label>
+                <input [(ngModel)]="Category.price_summer" type="number" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Summer Price">
+            </div>
+            <div class="form-group">
+                <label for="Email">Autumn Price</label>
+                <input [(ngModel)]="Category.price_autmn" type="number" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Autumn Price">
+            </div>
+            <div class="form-group">
+                <label for="Email">Caracterstiques</label>
+                <input [(ngModel)]="Category.caracterstiques" type="text" [ngModelOptions]="{standalone: true}" required
+                    placeholder="Caracterstiques">
+            </div>
+            <button type="submit" class="btn-Cchanges" (click)="updateCategory(Category.type,Category)">Submit
+                Changes</button>
+
+            <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+            <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+        </form>
+
+
+
+    </div>
+
+</ng-container>

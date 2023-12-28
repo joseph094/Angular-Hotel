@@ -1,0 +1,404 @@
+.login {
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    min-width: 80px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: none;
+    background-image: linear-gradient(to left,
+            #e7c75e 0%,
+            /* Start with a color before #D4AF37 */
+            #D4AF37 50%,
+            /* #D4AF37 at 50% (middle) */
+            #f7be03 100%
+            /* End with a color after #D4AF37 */
+        );
+    margin-right: 20px;
+    border: 1px solid #ffc609;
+}
+
+.solana-img {
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-left: 7px;
+    width: 15px;
+}
+
+.toolbar {
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    height: 35px;
+    width: 100%;
+    position: relative;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #05071e;
+
+}
+
+.toolbar-values {
+    color: white;
+    display: flex;
+}
+
+.value-style {
+    color: #8358ff;
+    background-color: #05071e;
+    padding: 2px;
+    font-size: 14px;
+    margin-left: 4px;
+}
+
+.value-style:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+.value-style:nth-of-type(2) {
+    animation-delay: 0.4s;
+}
+
+.value-style:nth-of-type(3) {
+    animation-delay: 0.6s;
+}
+
+.value-style:nth-of-type(4) {
+    animation-delay: 0.8s;
+}
+
+.value-name {
+    font-size: 14px;
+    display: flex;
+    color: #b3bac9;
+    align-items: center;
+
+}
+
+@keyframes highlight {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+header {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    height: 50px;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background-color: #0d102d;
+
+}
+
+.logo {
+    margin-top: 15px;
+    width: 80px;
+}
+
+header .navbar ul {
+    list-style: none;
+}
+
+header .navbar ul li {
+    position: relative;
+    float: left;
+    width: 180px;
+}
+
+header .navbar ul li a {
+    padding: 6px 10px;
+    color: white;
+    display: block;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+header .navbar ul li a:hover {
+    background-color: #D4AF37;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #D4AF37;
+
+}
+
+header .navbar ul li ul {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: #0d102d;
+    display: none;
+    box-shadow: 0 0 10px #D4AF37;
+    z-index: 100;
+    padding: 0;
+}
+
+header .navbar ul li ul li {
+    width: 100%;
+    border-top: 1px solid #34216b;
+}
+
+header .navbar ul li:hover>ul {
+    display: initial;
+}
+
+.form {
+    --input-text-color: #fff;
+    --input-bg-color: red;
+    --focus-input-bg-color: transparent;
+    --text-color: #949faa;
+    --active-color: #8358ff;
+    --width-of-input: 200px;
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+    margin-right: 15px;
+
+}
+
+/* form style */
+.form {
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: var(--width-of-input);
+    position: relative;
+    isolation: isolate;
+}
+
+/* a fancy bg for showing background and border when focus. */
+.fancy-bg {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+
+    background: #141034;
+    border-radius: 30px;
+    // height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: 1px solid #8358ff;
+}
+
+/* label styling */
+label {
+    width: 100%;
+    // padding: 0.8em;
+    height: 30px;
+    padding-inline: var(--inline-padding-of-input);
+    display: flex;
+    align-items: center;
+}
+
+.search,
+.close-btn {
+    position: absolute;
+}
+
+/* styling search-icon */
+.search {
+    fill: var(--text-color);
+    left: var(--inline-padding-of-input);
+}
+
+/* svg -- size */
+svg {
+    width: 17px;
+    display: block;
+}
+
+/* styling of close button */
+.close-btn {
+    border: none;
+    right: var(--inline-padding-of-input);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.1em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--active-color);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* styling of input */
+.input {
+    color: var(--input-text-color);
+    width: 100%;
+    margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+    background: none;
+    border: none;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--text-color);
+}
+
+/* input background change in focus */
+.input:focus~.fancy-bg {
+    border: 1px solid var(--active-color);
+    background: var(--focus-input-bg-color);
+}
+
+/* search icon color change in focus */
+.input:focus~.search {
+    fill: var(--active-color);
+}
+
+/* showing close button when typing */
+.input:valid~.close-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+
+#menu-bar {
+    display: none;
+}
+
+header .menu-icon {
+    font-size: 24px;
+    color: #9e34ac;
+    cursor: pointer;
+    display: none;
+}
+
+.navbar {
+    display: contents;
+}
+
+@media (max-width: 1275px) {
+    header {
+        padding: 5px;
+        position: relative;
+    }
+
+    header .menu-icon {
+        display: flex;
+        justify-content: end;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 5px;
+        box-shadow: #05071e 0px 7px 7px 9px, rgb(0 0 0 / 4%) 0px 10px 10px -5px;
+        right: 0;
+        background: #161a42;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: none;
+        width: calc(100% - 10px);
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        flex-direction: column;
+    }
+
+    header .navbar ul li {
+        width: 100%;
+    }
+
+    header .navbar ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    #menu-bar:checked~.navbar {
+        display: flex;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .btn-mob {
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}
+
+.meta-menu-dropdown {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.meta-menu-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 10%;
+    background-color: #05071e;
+    width: 140px;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px 10px;
+    z-index: 1;
+    border: 1px solid #8358ff !important;
+    /* border-radius: 5px; */
+    flex-direction: column;
+    align-items: center;
+    top: 40px;
+}
+
+.meta-menu-dropdown:hover .meta-menu-dropdown-content {
+    display: flex;
+}
+
+.meta-menu-dropdown:hover {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    background: #8358ff;
+    cursor: pointer;
+}
+
+.log_in {
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    min-width: 100px;
+    line-height: 40px;
+}

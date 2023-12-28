@@ -1,0 +1,119 @@
+<h2 class="title">Categories</h2>
+<button type="button" class="add-category-button" (click)="showOrNot()">
+  <span>+</span> Add New Category
+</button>
+<ng-container *ngIf="show">
+  <div class="form-container">
+
+      <form action="#" method="post">
+          <p>Create Room Category</p>
+          <div class="form-group">
+              <label for="Username">Category Type</label>
+              <input [(ngModel)]="Category.type" type="text" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Category Type">
+          </div>
+          <div class="form-group">
+              <label for="Username">Winter Price </label>
+              <input [(ngModel)]="Category.price_winter" type="number" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Winter Price">
+          </div>
+          <div class="form-group">
+              <label for="Username">Spring Price</label>
+              <input [(ngModel)]="Category.price_spring" type="number" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Spring Price">
+          </div>
+          <div class="form-group">
+              <label for="Email">Summer Price</label>
+              <input [(ngModel)]="Category.price_summer" type="number" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Summer Price">
+          </div>
+          <div class="form-group">
+              <label for="Email">Autumn Price</label>
+              <input [(ngModel)]="Category.price_autmn" type="number" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Autumn Price">
+          </div>
+          <div class="form-group">
+              <label for="Email">Caracterstiques</label>
+              <input [(ngModel)]="Category.caracterstiques" type="text" [ngModelOptions]="{standalone: true}" required
+                  placeholder="Caracterstiques">
+          </div>
+          <button type="submit" class="btn-create" (click)="createCategory()">Create New Category</button>
+
+          <!--    <button type="submit" class="btn-Schanges">Save Changes</button>-->
+          <!--    <button type="submit" class="btn-Cchanges">Cancel Changes</button>-->
+      </form>
+
+  </div>
+
+</ng-container>
+<div class="container" style="margin-bottom: 20px; margin-top: 30px">
+  <div style="display: inline-block ; padding-bottom: 40px;">
+
+  <table mat-table [dataSource]="datasource" matSort>
+    <!--  Lenders  -->
+    
+    <ng-container matColumnDef="type">
+      <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header>Category Type</th>
+      <td   *matCellDef="let element">
+        <div class="floating">{{element.type}}</div><br>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="price_winter">
+      <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Winter Price
+      </th>
+      <td   *matCellDef="let element">
+        <div class="floating">{{element.price_winter}}</div><br>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="price_spring">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Spring Price
+        </th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.price_spring}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="price_summer">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Summer Price
+        </th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.price_summer}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="price_autmn">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Autumn Price
+        </th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.price_autmn}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="caracterstiques">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Caracterstiques 
+        </th>
+        <td   *matCellDef="let element">
+          <div class="floating">{{element.caracterstiques}}</div><br>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Edit 
+        </th>
+        <td   *matCellDef="let element">
+            <button type="submit" class="btn1" (click)="updateCategory(element.type)">Edit</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th class="tableheader" mat-header-cell *matHeaderCellDef mat-sort-header> Delete 
+        </th>
+        <td   *matCellDef="let element">
+            <button type="submit"  class="btn1" (click)="deleteCategory(element.type)" >Delete</button>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[20]" showFirstLastButtons style="margin-bottom: 40px; background-color: #0d102d; color: white; "></mat-paginator>
+
+</div>
+
+
+</div>

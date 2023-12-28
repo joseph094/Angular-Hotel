@@ -1,0 +1,62 @@
+<div style="position: sticky; top: 0; z-index: 5000">
+    <header>
+        <img src="../assets/logo.png" class="logo" />
+
+
+        <input type="checkbox" id="menu-bar" />
+
+        <label for="menu-bar" class="menu-icon">&#9776;</label>
+
+        <nav class="navbar">
+            <ul>
+                <ng-container *ngIf="Role()==''">
+                    <li><a routerLink="">Home</a></li>
+
+                    <li>
+                        <a routerLink="/chambers" routerLinkActive="active-link">Chambers Calender </a>
+                    </li>
+                </ng-container>
+
+                <ng-container *ngIf="Role()=='USER'">
+                    <li><a routerLink="">Home</a></li>
+
+                    <li>
+                        <a routerLink="/chambers" routerLinkActive="active-link">Chambers Calender </a>
+                    </li>
+                    <li>
+                        <a routerLink="/available" routerLinkActive="active-link">Reserve a Room</a>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="Role()=='ADMIN'">
+                    <li><a routerLink="categories">Categories</a></li>
+
+                    <li><a routerLink="rooms">Chambers</a></li>
+
+                    <li><a routerLink="admin-reservations">Reservations</a></li>
+
+                    <li><a routerLink="users">Clients</a></li>
+
+
+                </ng-container>
+
+
+            </ul>
+            <ng-container *ngIf="!LoggedIn()">
+                <div>
+                    <button class="login" routerLink="login">Sign in</button>
+                    <button class="login" routerLink="/register">Sign up</button>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="LoggedIn()">
+
+                <div>
+                    <button class="login" routerLink="profil">Profil</button>
+                    <button class="login" (click)="Logout()">Logout</button>
+                </div>
+
+            </ng-container>
+        </nav>
+    </header>
+
+
+</div>
