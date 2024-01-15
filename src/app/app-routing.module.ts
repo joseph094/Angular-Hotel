@@ -1,28 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminreservationsComponent } from './adminreservations/adminreservations.component';
+import { AuthGuard } from './auth.guard';
+import { AvailableComponent } from './available/available.component';
+import { CalenderChambersComponent } from './calender-chambers/calender-chambers.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { UpdatecategorieComponent } from './categories/updatecategorie/updatecategorie.component';
-import { LoginComponent } from './login/login.component';
-import { RoomsComponent } from './rooms/rooms.component';
-import { AvailableComponent } from './available/available.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { ProfilComponent } from './profil/profil.component';
-import { AdminreservationsComponent } from './adminreservations/adminreservations.component';
-import { UpdateroomComponent } from './rooms/updateroom/updateroom.component';
-import { UsersComponent } from './users/users.component';
-import { UpdateuserComponent } from './users/updateuser/updateuser.component';
-import { AuthGuard } from './auth.guard';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { CalenderChambersComponent } from './calender-chambers/calender-chambers.component';
 import { ChambersComponent } from './chambers/chambers.component';
+import { CommentComponent } from './comment/comment.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { ProfilComponent } from './profil/profil.component';
+import { RegisterComponent } from './register/register.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { UpdateroomComponent } from './rooms/updateroom/updateroom.component';
+import { UpdateuserComponent } from './users/updateuser/updateuser.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
+  { path: 'comment', component: CommentComponent, canActivate: [AuthGuard] },
   { path: 'available', component: AvailableComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
   { path: 'reserve', component: ReservationComponent, canActivate: [AuthGuard], data: { role: 'USER' } },
   { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard], data: { role: 'ADMIN' } },
@@ -71,7 +73,13 @@ const routes: Routes = [
     component:CalenderChambersComponent,
     canActivate: [AuthGuard], // Requires just authentication
     data: { role: 'USER' },
-  }
+  },
+
+  {
+    path:"comment",
+    component:CommentComponent,
+    canActivate: [AuthGuard], // Requires just authentication
+  },
 
 ]
 

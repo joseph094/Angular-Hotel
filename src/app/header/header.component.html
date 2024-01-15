@@ -26,6 +26,9 @@
                     <li>
                         <a routerLink="/available" routerLinkActive="active-link">Reserve a Room</a>
                     </li>
+                    <li>
+                      <a routerLink="/comment" routerLinkActive="active-link">Comment</a>
+                  </li>
                 </ng-container>
                 <ng-container *ngIf="Role()=='ADMIN'">
                     <li><a routerLink="categories">Categories</a></li>
@@ -35,6 +38,8 @@
                     <li><a routerLink="admin-reservations">Reservations</a></li>
 
                     <li><a routerLink="users">Clients</a></li>
+
+                    <li><a routerLink="comment">Comment</a></li>
 
 
                 </ng-container>

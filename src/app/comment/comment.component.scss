@@ -1,0 +1,166 @@
+
+div {
+  margin-bottom: 50px;
+
+  h2 {
+    color:antiquewhite;
+    margin-left: 20px;
+  }
+
+  .reel-container {
+    overflow-y: scroll;
+    display: flex;
+    white-space: nowrap;
+    margin-left: 20px;
+
+  }
+
+  .comment-reel {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    min-width: 250px;
+    max-width: 350px;
+    background-color: antiquewhite;
+
+
+    .comment-header {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .comment-content {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .rating {
+      display: flex;
+      margin-top: 10px;
+      .star {
+        color: #f7d024; /* adjust yellow color as needed */
+        font-size: 30px;
+        padding-left: 5px;
+
+      }
+    }
+  }
+}
+.AddFeed{
+  color: black;
+}
+
+.containerAdd{
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-left: 40px;
+}
+.comment-reel {
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-header {
+  font-weight: bold;
+}
+
+.rating {
+  display: flex;
+}
+
+.star {
+  color: gold;
+}
+
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-input,
+.rating-input {
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+// Base styles for the container
+.containerAdd {
+  margin: 30px auto;
+  padding: 10px;
+  background-color:antiquewhite;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+// Heading styles
+.AddFeed {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+// Inner container styles
+.reel-container2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+}
+
+// Label styles
+.reel-container2 label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+// Textarea styles
+.reel-container2 textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none; /* Prevent resizing */
+}
+
+// Select styles
+.reel-container2 select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+// Button styles
+.reel-container2 button {
+  background-color: #007bff; /* Primary blue */
+  color: #fff;
+  padding: 15px 5px;
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+// Hover effect for the button
+.reel-container2 button:hover {
+  background-color: #0069d9; /* Darker blue on hover */
+}

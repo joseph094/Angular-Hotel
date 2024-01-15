@@ -16,7 +16,12 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "headers": {
+            "Content-Security-Policy": "max-age=31536000 ; includeSubDomains"
+          },
           "options": {
+
+            
             "outputPath": "dist/hotel-front",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -35,6 +40,7 @@
             ],
             "scripts": []
           },
+          
           "configurations": {
             "production": {
               "budgets": [
@@ -102,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2117dc18-2ff5-4950-b235-5fc0d87c3b62"
   }
 }

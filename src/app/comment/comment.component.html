@@ -1,0 +1,46 @@
+<div class="container" style="margin-bottom: 20px; margin-top: 30px;">
+  <h2>Feedback List</h2>
+  <div class="reel-container">
+    <div *ngFor="let comment of comments" class="comment-reel">
+      <div class="comment-header">
+         {{ comment.user ? comment.user.first_name : 'Anonymous' }}
+      </div>
+      <div class="comment-content">
+        {{ comment.content }}
+      </div>
+      <div class="rating">
+        <span *ngFor="let _ of getEmptyStars(comment)" class="star">*</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="containerAdd" style="margin: 30px; padding: auto;">
+  <h3 class="AddFeed">Add your Feedback</h3>
+  <div class="reel-container2">
+    <div>
+      <label for="feedback">Your Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="4" cols="50" [(ngModel)]="newComment.content"></textarea>
+    </div>
+
+    <div >
+      <label for="rating">Choose your Rating:</label>
+      <select id="rating" name="rating" [(ngModel)]="newComment.rate">
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
+          <option value="6">6 Stars</option>
+          <option value="7">7 Stars</option>
+          <option value="8">8 Stars</option>
+          <option value="9">9 Stars</option>
+          <option value="10">10 Stars</option>
+      </select>
+    </div>
+
+    <button type="button" (click)="submitFeedback()">Submit Feedback</button>
+  </div>
+</div>
