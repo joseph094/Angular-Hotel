@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChambersService } from '../services/chambers.service';
-import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { ChambersService } from '../services/chambers.service';
 
 
 @Component({
@@ -35,7 +35,7 @@ export class AvailableComponent implements OnInit {
   }
 
   async getChambers() {
-
+  try{
     this.show = false;
     this.error = "";
 
@@ -60,7 +60,7 @@ export class AvailableComponent implements OnInit {
 
 
       const result = await this.chamberService.GetChambersByDate({ beginDate: this.datepipe.transform(new Date(this.RequestChambers.beginDate), 'dd/MM/yyyy'), endDate: this.datepipe.transform(new Date(this.RequestChambers.endDate), 'dd/MM/yyyy') })
-      console.log(result);
+      console.log("ya a7lem",result);
       this.chambers = result;
       this.show = true;
       this.datasource = new MatTableDataSource(this.chambers)
@@ -95,6 +95,10 @@ export class AvailableComponent implements OnInit {
     }
 
   }
+
+  catch(error){
+    this.error = "NO AVAILABLE ROOM FOR THIS DATE  "
+  }}
   async getTypes() {
     try {
       const result = await this.chamberService.GetChamberTypes();
@@ -142,7 +146,7 @@ export class AvailableComponent implements OnInit {
   reservation(chamberId: any) {
     this.router.navigateByUrl('/reserve');
   }
-  
+
 
 
 }
